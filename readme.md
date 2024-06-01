@@ -3,7 +3,8 @@ LoathebOrder
 Provides a macro to announce your Loatheb heal and who is next up.  
 ---
 Type or macro `/loathebhealed` to announce yourself after/during a heal.  
-Replaces macros like: `/y Ehawne has Healed >>> Ferroklast Next`  
+* Replaces macros like: `/y Ehawne has Healed >>> Ferroklast Next`  
+* Remembers your last assignment but updates to any new order announced in raid.  
 ___
 Raid officers should use some variation of the following announce form in `/ra` or `/rw`:  
 `Loatheb order: HealerOne > HealerTwo > HealerThree > HealerFour`  

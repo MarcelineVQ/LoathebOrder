@@ -1,5 +1,3 @@
-local next_healer = nil
-
 local function extract_healers(input)
   local healers = {}
   local start_pos = 1
@@ -46,7 +44,7 @@ function loathebHealedMacro()
   if next_healer then
     SendChatMessage(UnitName("player").." Healed >>>> ".. next_healer.." Next","YELL")
   else
-    DEFAULT_CHAT_FRAME:AddMessage("You are not in the Loatheb direct healing rotation.")
+    DEFAULT_CHAT_FRAME:AddMessage("You have not been assigned to a Loatheb direct healing rotation.")
   end
 end
 

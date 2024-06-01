@@ -5,5 +5,6 @@
 ## X-Date: 2024-05-06
 ## X-Website: https://github.com/MarcelineVQ/LoathebOrder
 ## Version: 1.0
+## SavedVariablesPerCharacter: next_healer
 
 LoathebOrder.lua
