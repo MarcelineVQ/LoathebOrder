@@ -1,6 +1,6 @@
 LoathebOrder
 ===
-Provides a macro to announce your heal Loatheb heal and order.
+Provides a macro to announce your Loatheb heal and who is next up.  
 ---
 Type or macro `/loathebhealed` to announce yourself after/during a heal.  
 Replaces macros like: `/y Ehawne has Healed >>> Ferroklast Next`  
