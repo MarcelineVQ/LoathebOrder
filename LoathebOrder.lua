@@ -27,7 +27,7 @@ loathebFrame:SetScript("OnEvent", function ()
       local healers = extract_healers(arg1)
 
       -- Drop last if order is cyclical
-      if healers[table.getn(healers)] == healers[1] then table.remove(healers,1) end
+      if healers[table.getn(healers)] == healers[1] then table.remove(healers) end
 
       for i,healer in ipairs(healers) do
         if string.lower(healer) == string.lower(UnitName("player")) then
