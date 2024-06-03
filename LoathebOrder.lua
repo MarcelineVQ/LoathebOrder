@@ -1,3 +1,7 @@
+local function lo_print(msg)
+  DEFAULT_CHAT_FRAME:AddMessage(msg)
+end
+
 local function extract_healers(input)
   local healers = {}
   local start_pos = 1
@@ -16,6 +20,10 @@ local function extract_healers(input)
   return healers
 end
 
+local function MacroLine(next)
+  return (UnitName("player") .. " Healed >>>> " .. next .." Next")
+end
+
 local loathebFrame = CreateFrame("Frame")
 loathebFrame:RegisterEvent("CHAT_MSG_RAID") -- arg1 msg, arg2 player
 loathebFrame:RegisterEvent("CHAT_MSG_RAID_LEADER") -- arg1 msg, arg2 player
@@ -25,6 +33,7 @@ loathebFrame:SetScript("OnEvent", function ()
      and string.find(arg1,">") then
     if string.find(string.lower(arg1),"loatheb") then
       local healers = extract_healers(arg1)
+      local last_healer = next_healer
 
       -- Drop last if order is cyclical
       if healers[table.getn(healers)] == healers[1] then table.remove(healers) end
@@ -35,6 +44,9 @@ loathebFrame:SetScript("OnEvent", function ()
           break
         end
       end
+      if last_healer ~= next_healer then
+        lo_print("|cffffff00Your Loatheb Order updated:|r |cffff0000" .. MacroLine(next_healer) .. "|r")
+      end
     end
   end
 end)
@@ -42,9 +54,9 @@ end)
 function loathebHealedMacro()
   -- Report if you're not on the healer list!
   if next_healer then
-    SendChatMessage(UnitName("player").." Healed >>>> ".. next_healer.." Next","YELL")
+    SendChatMessage(MacroLine(next_healer),"YELL")
   else
-    DEFAULT_CHAT_FRAME:AddMessage("You have not been assigned to a Loatheb direct healing rotation.")
+    lo_print("You have not been assigned to a Loatheb direct healing rotation.")
   end
 end
 
