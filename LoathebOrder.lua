@@ -44,6 +44,10 @@ loathebFrame:SetScript("OnEvent", function ()
           break
         end
       end
+
+      -- caps
+      next_healer = string.upper(string.sub(next_healer,1,1)) .. string.lower(string.sub(next_healer,2))
+
       if last_healer ~= next_healer then
         lo_print("|cffffff00Your Loatheb Order updated:|r |cffff0000" .. MacroLine(next_healer) .. "|r")
       end
